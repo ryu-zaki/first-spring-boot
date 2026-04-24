@@ -10,7 +10,7 @@ public class PluginLoader {
 
         PluginService service = context.getBean(PluginService.class);
 
-        service.executeDatabase("Jhonwell");
+        service.execute("Jhonwell");
     }
 
 }

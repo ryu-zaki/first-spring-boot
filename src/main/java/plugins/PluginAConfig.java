@@ -15,7 +15,7 @@ public class PluginAConfig {
     public PluginService pluginService(
             DatabaseService databaseService
     ) {
-        return new PluginService(databaseService);
+        return new APIService();
     }
 
 }
