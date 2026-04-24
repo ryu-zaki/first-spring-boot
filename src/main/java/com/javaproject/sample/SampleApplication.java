@@ -8,8 +8,7 @@ import org.springframework.context.ApplicationContext;
 public class SampleApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(SampleApplication.class, args);
-		context.getBean(OrderService.class).placeOrder(900);
+		SpringApplication.run(SampleApplication.class, args);
 	}
 
 }
