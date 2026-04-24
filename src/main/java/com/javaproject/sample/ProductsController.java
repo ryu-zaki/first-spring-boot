@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -19,6 +20,13 @@ public class ProductsController {
         products.add(new Products("Pandesal", 2.5));
 
         return products;
+    }
+
+    @GetMapping("/{name}")
+    public Optional<Products> getProduct(@PathVariable String name) {
+
+        return products.stream().filter(p -> p.getProductName().equals(name))
+                .findFirst();
     }
 
     @PostMapping("/add")
