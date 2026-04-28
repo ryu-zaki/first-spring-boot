@@ -18,4 +18,12 @@ public class Products {
         return price;
     }
 
+    public void setProductName(String newName) {
+        productName = newName;
+    }
+
+    public void setPrice(double newPrice) {
+        price = newPrice;
+    }
+
 }
