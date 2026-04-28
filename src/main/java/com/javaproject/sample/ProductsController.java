@@ -34,4 +34,21 @@ public class ProductsController {
         products.add(newProduct);
         return "Product " + newProduct.getProductName() + " with a price of " + newProduct.getPrice() + " has been added";
     }
+
+    @PutMapping("/update")
+    public String editProduct(@RequestBody Products updatedProduct) {
+
+        for (Products product: products) {
+
+            if (product.getProductName().equals(updatedProduct.getProductName())) {
+                product.setProductName(updatedProduct.getProductName());
+                product.setPrice(updatedProduct.getPrice());
+            }
+
+        }
+
+        return updatedProduct.getProductName() + " has been updated.";
+    }
+
+
 }
