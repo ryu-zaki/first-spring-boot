@@ -23,8 +23,8 @@ public class ProductsController {
     }
 
     @GetMapping("/{name}")
-    public Optional<Products> getProduct(@PathVariable String name) {
-
+    public Optional<Products> getProduct(@PathVariable String name, @RequestParam String archive) {
+        System.out.println("is Archive: " + archive);
         return products.stream().filter(p -> p.getProductName().equals(name))
                 .findFirst();
     }
