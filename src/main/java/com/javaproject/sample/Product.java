@@ -16,7 +16,8 @@ public class Product implements Comparable<Product> {
         this.price = price;
     }
 
-    public void addSupplier(String givenId, Supplier supplier) {
+    public void addSupplier(String givenId, String supplierName, double tax) {
+        Supplier supplier = new Supplier(supplierName, tax, givenId);
         suppliers.put(givenId, supplier);
     }
 
@@ -36,8 +37,11 @@ public class Product implements Comparable<Product> {
         price = newPrice;
     }
 
-    public Map<String, Supplier> getSuppliers() {
-        return suppliers;
+    public List<Supplier> getSuppliers() {
+
+        List<Supplier> results = new ArrayList<Supplier>(suppliers.values());
+
+        return results;
     }
 
     public void removeSupplier(String supplierId) {
