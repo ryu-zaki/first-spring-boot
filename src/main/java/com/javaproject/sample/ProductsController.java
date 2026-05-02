@@ -19,25 +19,31 @@ public class ProductsController {
         products.add(new Product("Pandesal", 2.5));
 
         Product prod = products.getFirst();
-        prod.addSupplier("1", new Supplier("WL", 200));
-        prod.addSupplier("2", new Supplier("J&J", 90));
-        prod.addSupplier("3", new Supplier("Lemon", 160));
+        prod.addSupplier("1", "WL", 200);
+        prod.addSupplier("2", "J&J", 90);
+        prod.addSupplier("3", "Lemon", 160);
         Product prod2 = products.get(1);
 
-        prod2.addSupplier("4", new Supplier("WL", 120));
-        prod2.addSupplier("5", new Supplier("J&J", 190));
-        prod2.addSupplier("6", new Supplier("Lemon", 110));
+        prod2.addSupplier("4","WL", 120);
+        prod2.addSupplier("5","J&J", 190);
+        prod2.addSupplier("6","Lemon", 110);
 
-        Product prod3 = products.get(1);
-        prod3.addSupplier("7", new Supplier("WL", 70));
-        prod3.addSupplier("8", new Supplier("J&J", 170));
-        prod3.addSupplier("9", new Supplier("Lemon", 130));
+        Product prod3 = products.get(2);
+        prod3.addSupplier("7","WL", 70);
+        prod3.addSupplier("8","J&J", 170);
+        prod3.addSupplier("9","Lemon", 130);
     }
 
     @GetMapping("/")
     public List<Product> getAllProducts() {
         Collections.sort(products);
 
+        return products;
+    }
+
+    @GetMapping("/remove")
+    public List<Product> getUpdatedProducts() {
+        ProductService.removeLowestTax(products);
         return products;
     }
 
